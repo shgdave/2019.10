@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+from PIL import ImageGrab
+from PIL import Image
+import os
+import time
+import getpass
+im = ImageGrab.grab()
+username = getpass.getuser()
+now = time.strftime("%Y-%m-%d-%H_%M_%S",time.localtime(time.time()))
+width = int((im.size[0])*1.0)
+height = int((im.size[1])*1.0)
+im = im.resize((width,height),Image.ANTIALIAS)
+im.save ("D:\\screen\\"+username+"-"+now+".jpg")
